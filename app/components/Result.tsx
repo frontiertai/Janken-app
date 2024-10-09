@@ -1,7 +1,7 @@
 //ユーザーとボットの手が変更されたらジャンケンを開始するコンポーネント
 //また戦績を保存する。
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { JankenContext } from "../Appprovider/page";
 
 
@@ -76,7 +76,7 @@ useEffect(() => {
     // じゃんけんの始動
     judge(User, Bot);
   }
-}, [userChoice, opponentChoice, gameCount]);
+}, [userChoice, opponentChoice]);
 
 
 

@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { JankenContext } from "../Appprovider/page";
 import { useRouter } from "next/navigation";
 

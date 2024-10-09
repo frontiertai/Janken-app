@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import ChoiceButton from "./components/ChoiceButton";
 import "./css/app.css";
 import { useRouter } from "next/navigation";
