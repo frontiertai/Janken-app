@@ -107,6 +107,10 @@ export const AppContextProvider=({children}:AppProviderProps)=>{
     )
 }
 
+export default AppContextProvider; 
+
+
+
 
 
 

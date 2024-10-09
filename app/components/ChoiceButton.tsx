@@ -1,7 +1,7 @@
 "use client"
 //要件定義：ユーザージャンケンの手を決めるまた、相手側のジャンケンの手も返す
 
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { JankenContext } from "../Appprovider/page";
 
 
