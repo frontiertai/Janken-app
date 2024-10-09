@@ -2,7 +2,7 @@
 //また戦績を保存する。
 
 import { useContext, useEffect } from "react";
-import { JankenContext } from "../Appprovider/page";
+import { JankenContext } from "@/Appprovider/page";
 
 
 const Result=()=>{
@@ -17,55 +17,51 @@ const Result=()=>{
   ];
 
   // じゃんけんのルールに関する関数 (ユーザーと相手の手を元に(string型から判断)
-// judge関数の修正
-const judge = (user: string, bot: string) => {
-  let newResult = "";
-  
-  if (
-    (user === "グー" && bot === "チョキ") ||
-    (user === "チョキ" && bot === "パー") ||
-    (user === "パー" && bot === "グー")
-  ) {
-    // 勝数を更新
-    setUserWins(userWins + 1);
-    newResult = "勝ち!!";
-    setRecord(record+1)
+  // judge関数の修正
+  const judge = (user: string, bot: string) => {
+    let newResult = "";
+    if (
+        (user === "グー" && bot === "チョキ") ||
+        (user === "チョキ" && bot === "パー") ||
+        (user === "パー" && bot === "グー")
+      ) {
+        // 勝数を更新
+        setUserWins(userWins + 1);
+        newResult = "勝ち!!";
+        setRecord(record+1)
 
-    if(record>best){
-      setBest(record);
-    }
-    
+        if(record>best){
+          setBest(record);
+        }
+        
 
-  } else if (user === bot) {
-    newResult = "あいこ!!";
-    
-  } else {
-    newResult = "負け!";
-    setBotWins(botWins + 1);
-    setRecord(1)
-    
-  }
+      } else if (user === bot) {
+        newResult = "あいこ!!";
+        
+      } else {
+        newResult = "負け!";
+        setBotWins(botWins + 1);
+        setRecord(1)
+        
+      }
 
-  setResult(newResult);
+      setResult(newResult);
+      console.log(record);
 
-  
-
-
-  setNewHistory({
-    id: gameCount,
-    userChoice: userChoice,
-    opponentChoice: opponentChoice,
-    result: newResult 
-  });
-};
+      
 
 
+      setNewHistory({
+        id: gameCount,
+        userChoice: userChoice,
+        opponentChoice: opponentChoice,
+        result: newResult 
+      });
+    };
 
-useEffect(()=>{
 
-  console.log(best);
 
-},[record,best])
+
 
 // useEffectの修正
 useEffect(() => {
@@ -84,7 +80,7 @@ useEffect(()=>{
   if(newHistory.result!=""){
     setHistory([...history,newHistory]);
   }
-},[newHistory])
+},[newHistory,history])
 
 
 
@@ -95,7 +91,7 @@ useEffect(()=>{
 
   setWinningRate(rate)
 
-},[gameCount,userWins]);
+},[gameCount,userWins,setWinningRate]);
 
 
 
@@ -115,6 +111,7 @@ useEffect(()=>{
               <div className="flex flex-col items-center">
                 <h2 className="text-gray-950 text-2xl">対戦数:{gameCount}</h2>
                 <h2 className="text-gray-950 text-2xl">あなたの勝率:{winningRate}%</h2>
+                <h2 className="text-gray-950 text-2xl">連勝数:{record}%</h2>
               </div>
             </div>
           ):(

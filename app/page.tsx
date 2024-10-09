@@ -4,7 +4,7 @@ import { useContext } from "react";
 import ChoiceButton from "./components/ChoiceButton";
 import "./css/app.css";
 import { useRouter } from "next/navigation";
-import { JankenContext, } from "./Appprovider/page";
+import { JankenContext } from "@/Appprovider/page";
 import ResetButton from "./components/ResetButton";
 import Result from "./components/Result";
 

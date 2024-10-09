@@ -2,7 +2,7 @@
 //要件定義：ユーザージャンケンの手を決めるまた、相手側のジャンケンの手も返す
 
 import { useContext } from "react";
-import { JankenContext } from "../Appprovider/page";
+import { JankenContext } from "@/Appprovider/page";
 
 
 interface Jankenprops{

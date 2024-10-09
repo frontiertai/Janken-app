@@ -1,6 +1,6 @@
 //
 import { useContext } from "react";
-import { JankenContext } from "../Appprovider/page";
+import { JankenContext } from "@/Appprovider/page";
 
 const ResetButton=()=>{
 

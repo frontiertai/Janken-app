@@ -1,6 +1,6 @@
 'use client'
 import { useContext } from "react";
-import { JankenContext } from "../Appprovider/page";
+import { JankenContext } from "@/Appprovider/page";
 import { useRouter } from "next/navigation";
 
 
@@ -8,7 +8,7 @@ const Result = () => {
 
   const router=useRouter();
 
-  const { history,userWins,botWins,setUserWins,setBotWins,setResult,setUserChoice,setOpponentChoice,setGameCount,setHistory,setNewHistory,finalresult,record,best,setBest,setRecord} = useContext(JankenContext);
+  const { history,userWins,botWins,setUserWins,setBotWins,setResult,setUserChoice,setOpponentChoice,setGameCount,setHistory,setNewHistory,finalresult,best,setBest,setRecord} = useContext(JankenContext);
 
   
   const Hands = [
@@ -18,12 +18,6 @@ const Result = () => {
   ];
 
   
-
-    
-
-
-
-
   const handleClick=()=>{
     setUserWins(0);
     setBotWins(0);

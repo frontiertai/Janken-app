@@ -104,10 +104,12 @@ export const AppContextProvider=({children}:AppProviderProps)=>{
         <JankenContext.Provider value={{userChoice,setUserChoice,opponentChoice,setOpponentChoice,userWins, setUserWins,botWins,setBotWins,result, setResult,gameCount,setGameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory,finalresult, setFinalresult,record,setRecord,best,setBest}}>
             {children}
         </JankenContext.Provider>
+        
     )
-}
+};
 
-export default AppContextProvider; 
+
+export default AppContextProvider;
 
 
 
