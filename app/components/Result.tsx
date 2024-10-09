@@ -6,8 +6,9 @@ import { JankenContext } from "../Appprovider/page";
 
 
 const Result=()=>{
+  
 
-  const{userChoice,opponentChoice,setUserWins,userWins,setBotWins,botWins,result,setResult,gameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory}=useContext(JankenContext);
+  const{userChoice,opponentChoice,setUserWins,userWins,setBotWins,botWins,result,setResult,gameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory,record,setRecord,best,setBest}=useContext(JankenContext);
   // 数値と出し手の結びつけ
   const Hands = [
     { id: 0, method: "グー" },
@@ -19,6 +20,7 @@ const Result=()=>{
 // judge関数の修正
 const judge = (user: string, bot: string) => {
   let newResult = "";
+  
   if (
     (user === "グー" && bot === "チョキ") ||
     (user === "チョキ" && bot === "パー") ||
@@ -27,14 +29,26 @@ const judge = (user: string, bot: string) => {
     // 勝数を更新
     setUserWins(userWins + 1);
     newResult = "勝ち!!";
+    setRecord(record+1)
+
+    if(record>best){
+      setBest(record);
+    }
+    
+
   } else if (user === bot) {
     newResult = "あいこ!!";
+    
   } else {
     newResult = "負け!";
     setBotWins(botWins + 1);
+    setRecord(1)
+    
   }
 
   setResult(newResult);
+
+  
 
 
   setNewHistory({
@@ -44,6 +58,14 @@ const judge = (user: string, bot: string) => {
     result: newResult 
   });
 };
+
+
+
+useEffect(()=>{
+
+  console.log(best);
+
+},[record,best])
 
 // useEffectの修正
 useEffect(() => {

@@ -4,7 +4,7 @@ import { JankenContext } from "../Appprovider/page";
 
 const ResetButton=()=>{
 
-    const {setUserWins,setBotWins,setResult,setUserChoice,setOpponentChoice,setGameCount,setHistory,setNewHistory}=useContext(JankenContext)
+    const {setUserWins,setBotWins,setResult,setUserChoice,setOpponentChoice,setGameCount,setHistory,setNewHistory,setBest,setRecord}=useContext(JankenContext)
 
     const HandleReset = () => {
         setUserWins(0);
@@ -14,6 +14,8 @@ const ResetButton=()=>{
         setOpponentChoice(0);
         setGameCount(0);
         setHistory([]);
+        setBest(1);
+        setRecord(1);
         setNewHistory({
           id:0,
             userChoice:0,

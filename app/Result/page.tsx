@@ -8,7 +8,7 @@ const Result = () => {
 
   const router=useRouter();
 
-  const { history,userWins,botWins,setUserWins,setBotWins,setResult,setUserChoice,setOpponentChoice,setGameCount,setHistory,setNewHistory,finalresult} = useContext(JankenContext);
+  const { history,userWins,botWins,setUserWins,setBotWins,setResult,setUserChoice,setOpponentChoice,setGameCount,setHistory,setNewHistory,finalresult,record,best,setBest,setRecord} = useContext(JankenContext);
 
   
   const Hands = [
@@ -32,12 +32,15 @@ const Result = () => {
     setOpponentChoice(0);
     setGameCount(0);
     setHistory([]);
+    setBest(1);
+    setRecord(1);
     setNewHistory({
         id:0,
             userChoice:0,
             opponentChoice:0,
             result:""
     });
+    
     
     router.push("/")
 
@@ -55,6 +58,10 @@ const Result = () => {
                     <div>
                         Botの勝ち数:{botWins}
                     </div>
+                    <div>
+                        連勝数:{best}
+                    </div>
+
                 </div>
                 <div className={`flex justify-center ${finalresult==="あなたの勝ち" ? "text-red-600":finalresult==="引き分け" ? "text-green-600":finalresult==="負け  なんで負けたか明日まで考えといて" ? "text-blue-600":""}`}>
                     {finalresult}
