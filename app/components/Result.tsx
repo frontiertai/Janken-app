@@ -80,7 +80,7 @@ useEffect(()=>{
   if(newHistory.result!=""){
     setHistory([...history,newHistory]);
   }
-},[newHistory,history])
+},[newHistory])
 
 
 
@@ -111,7 +111,6 @@ useEffect(()=>{
               <div className="flex flex-col items-center">
                 <h2 className="text-gray-950 text-2xl">対戦数:{gameCount}</h2>
                 <h2 className="text-gray-950 text-2xl">あなたの勝率:{winningRate}%</h2>
-                <h2 className="text-gray-950 text-2xl">連勝数:{record}%</h2>
               </div>
             </div>
           ):(
