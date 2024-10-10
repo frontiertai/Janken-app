@@ -86,7 +86,7 @@ const Result = () => {
             </tbody>
             </table>
             <div className="flex justify-end space-y-2 ">
-                <button onClick={handleClick} className=" bg-blue-600 border border-gray-400  px-4 py-4 rounded-md font-bold text-white">
+                <button onClick={handleClick} className=" bg-blue-600 border border-gray-400  px-4 py-4 rounded-md font-bold text-white hover:bg-blue-500">
                     再挑戦する
                 </button>
             </div>

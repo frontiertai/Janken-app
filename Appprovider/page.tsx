@@ -36,6 +36,8 @@ type JankencontextType={
     setRecord:React.Dispatch<React.SetStateAction<number>>;
     best:number;
     setBest:React.Dispatch<React.SetStateAction<number>>;
+    retry:number;
+    setRetry:React.Dispatch<React.SetStateAction<number>>;
 
 
 };
@@ -64,7 +66,9 @@ const JankenContextData={
     record:1,
     setRecord:()=>{},
     best:1,
-    setBest:()=>{}
+    setBest:()=>{},
+    retry:0,
+    setRetry:()=>{}
 }
 
 export const JankenContext=createContext<JankencontextType>(JankenContextData);
@@ -90,18 +94,19 @@ export const AppContextProvider=({children}:AppProviderProps)=>{
             opponentChoice:0,
             result:""
         });
-        const [finalresult, setFinalresult] = useState<string>("");
+    const [finalresult, setFinalresult] = useState<string>("");
 
 
     const [record,setRecord]=useState<number>(0);
     const[best,setBest]=useState<number>(0);
+    const [retry,setRetry]=useState<number>(0);
     
 
     
 
 
     return(
-        <JankenContext.Provider value={{userChoice,setUserChoice,opponentChoice,setOpponentChoice,userWins, setUserWins,botWins,setBotWins,result, setResult,gameCount,setGameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory,finalresult, setFinalresult,record,setRecord,best,setBest}}>
+        <JankenContext.Provider value={{userChoice,setUserChoice,opponentChoice,setOpponentChoice,userWins, setUserWins,botWins,setBotWins,result, setResult,gameCount,setGameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory,finalresult, setFinalresult,record,setRecord,best,setBest,retry,setRetry}}>
             {children}
         </JankenContext.Provider>
         

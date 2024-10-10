@@ -40,7 +40,7 @@ const ChoiceButton=({label,userselect}:Jankenprops)=>{
 
 
     return(
-        <button className="px-10 py-4 bg-blue-900 text-white text-2xl rounded-lg  "onClick={()=>Handleselect(userselect)}>{label}</button>
+        <button className="px-10 py-4 bg-blue-900 text-white text-2xl rounded-lg hover:bg-blue-700  "onClick={()=>Handleselect(userselect)}>{label}</button>
 
     );
 };

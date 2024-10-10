@@ -26,7 +26,7 @@ const ResetButton=()=>{
       };
 
       return(
-        <button className="bg-red-600 text-white rounded-lg px-4 py-4" onClick={HandleReset}>リセット</button>
+        <button className="bg-red-600 text-white rounded-lg px-4 py-4 hover:bg-red-500" onClick={HandleReset}>リセット</button>
       );
     
 

@@ -8,7 +8,7 @@ import { JankenContext } from "@/Appprovider/page";
 const Result=()=>{
   
 
-  const{userChoice,opponentChoice,setUserWins,userWins,setBotWins,botWins,result,setResult,gameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory,record,setRecord,best,setBest}=useContext(JankenContext);
+  const{userChoice,opponentChoice,setUserWins,userWins,setBotWins,botWins,result,setResult,gameCount,winningRate,setWinningRate,history,setHistory,newHistory,setNewHistory,record,setRecord,best,setBest,setRetry,retry}=useContext(JankenContext);
   // 数値と出し手の結びつけ
   const Hands = [
     { id: 0, method: "グー" },
@@ -63,7 +63,7 @@ const Result=()=>{
 
 
 
-// useEffectの修正
+//ユーザーの手とBotの手が決まった際にじゃんけんが始まる。
 useEffect(() => {
   if (userChoice > 0 && opponentChoice > 0) {
     const User = Hands[userChoice - 1].method;
@@ -75,7 +75,7 @@ useEffect(() => {
 }, [userChoice, opponentChoice]);
 
 
-
+//戦績の記録
 useEffect(()=>{
   if(newHistory.result!=""){
     setHistory([...history,newHistory]);
@@ -84,7 +84,7 @@ useEffect(()=>{
 
 
 
-
+//勝率の導出
 useEffect(()=>{
 
   const rate=Math.round(100*(userWins/gameCount)*10)/10;
@@ -92,6 +92,18 @@ useEffect(()=>{
   setWinningRate(rate)
 
 },[gameCount,userWins,setWinningRate]);
+
+
+
+useEffect(()=>{
+
+  if(gameCount !== 0 && gameCount % 10 === 0){
+      setRetry(0);
+  }
+
+  console.log(retry)
+
+},[gameCount])
 
 
 
