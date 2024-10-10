@@ -2,7 +2,7 @@
 import { JankenContext } from "@/Appprovider/page";
 import { useRouter } from "next/navigation";
 
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 
 
 

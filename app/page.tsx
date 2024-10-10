@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import ChoiceButton from "./components/ChoiceButton";
 import "./css/app.css";
-import { useRouter } from "next/navigation";
+
 import { JankenContext } from "@/Appprovider/page";
 import ResetButton from "./components/ResetButton";
 import Result from "./components/Result";
@@ -11,9 +11,9 @@ import Modal from "./components/modal";
 
 const Home = () => {
 
-  const {userChoice,opponentChoice,userWins,botWins,setFinalresult,retry,gameCount}=useContext(JankenContext);
+  const {userChoice,opponentChoice,userWins,retry,gameCount}=useContext(JankenContext);
 
-  const router=useRouter();
+  
 
 
   // 数値と出し手の結びつけ
@@ -67,20 +67,6 @@ const Home = () => {
     setOpponentChoice(0);
   };*/
 
-//結果ページにリダイレクトするページ
-  const HandleRedirect=()=>{
-    if(userWins>botWins){
-      setFinalresult("あなたの勝ち")
-    }else if(userWins==botWins){
-      setFinalresult("引き分け")
-    }else{
-      setFinalresult("負け  なんで負けたか明日まで考えといて")
-    }
-    
-    router.push("/Result");
-
-  
-  }
 
   return (
     <div>
